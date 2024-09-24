@@ -1,3 +1,9 @@
+/**
+ * Searches for the weather and forecast data of a given city.
+ *
+ *@param {void}
+ * @return {void}
+ */
 function search() {
     const cityName = document.getElementById("city")?.value;
     const apiKey = 'd7ce2260647ea773e4c6f1e8b3057552';
@@ -26,7 +32,12 @@ function search() {
     }
 }
 
-
+/**
+ * Displays the current weather data for a given city.
+ *
+ * @param {object} data - The weather data object from the OpenWeatherMap API.
+ * @return {void}
+ */
 
 function displayWeather(data) {
     if (!data) {
@@ -73,7 +84,7 @@ function displayWeather(data) {
         HTMLicon.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
         HTMLicon.style.display = "block"; // show the icon
 
-        HTMLtemperature.textContent = temperature.toFixed(0) + " °C"; // round to 2 decimal places
+        HTMLtemperature.textContent = temperature.toFixed(0) + " °C"; // round to 0 decimal places
         HTMLdescription.textContent = description;
 
     } catch (error) {
@@ -81,6 +92,12 @@ function displayWeather(data) {
     }
 }
 
+/**
+ * Displays the hourly forecast data for a given city.
+ *
+ * @param {object} data - The forecast data object from the OpenWeatherMap API.
+ * @return {void}
+ */
 function displayForecast(data) {
     if (!data) {
         console.error("Error: Missing data");
